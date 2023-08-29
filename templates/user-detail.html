@@ -1,0 +1,32 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Detail</title>
+  </head>
+  <body>
+    <h1>User Detail</h1>
+    <div class="user-profile">
+      <img
+        src="{{ user.image_url }}"
+        alt="Profile Photo"
+        width="200"
+        height="200"
+      />
+      <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+
+      <h3>Posts of {{ user.first_name }}</h3>
+      <ul>
+        {% for post in posts %}
+        <li>
+          <a href="/post/{{post.id}}">{{post.title}}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      <a href="/post-create/{{user.id}}">Create Post for {{user.first_name}}</a
+      ><br />
+      <a href="/user-edit/{{ user.id }}">Edit User</a><br />
+      <a href="/user-list">Go Back</a>
+    </div>
+  </body>
+</html>
